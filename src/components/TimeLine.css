@@ -1,0 +1,94 @@
+.education-section {
+  padding: 2rem;
+  background-color: #121212;
+  color: #ffffff;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.education-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.education-card:focus,
+.education-card:hover {
+  background-color: #2a2a2a;
+  transform: translateY(-2px);
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.education-year {
+  font-size: 1.2rem;
+  color: #c770f0;
+}
+
+.education-degree {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.education-body {
+  margin-top: 0.5rem;
+}
+
+.education-institution {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #b8b8ff;
+}
+
+.education-details {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #cccccc;
+}
+
+.expanded .education-card {
+  background-color: #2a2a2a;
+}
+
+.education-modules {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.education-modules li {
+  color: #f0f0f0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+
+@media (max-width: 768px) {
+  .education-container {
+    gap: 1rem;
+  }
+
+  .education-card {
+    font-size: 0.9rem;
+  }
+}

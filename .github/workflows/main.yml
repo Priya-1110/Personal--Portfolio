@@ -1,0 +1,43 @@
+name: Vercel Deployment
+
+on:
+  push:
+    branches:
+      - main  # Change this to your branch if needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the latest code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js with the specified version
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Adjust the Node.js version as needed
+
+      # Install dependencies using npm
+      - name: Install dependencies
+        run: |
+          npm install --legacy-peer-deps
+
+      # Build the project (skip warnings)
+      - name: Build project
+        run: |
+          CI=false npm run build  # Ignore warnings during the build
+
+      # Install Vercel CLI globally
+      - name: Install Vercel CLI
+        run: npm install -g vercel  # Install Vercel CLI globally
+
+      # Link the project to Vercel and deploy to production
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}  # Use secrets securely
+        run: |
+          vercel link --token $VERCEL_TOKEN --yes  # Automatically confirm the link
+          vercel --prod --token $VERCEL_TOKEN  # Deploy to production
